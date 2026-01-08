@@ -5,6 +5,7 @@ import axiosInstance from "../api/axiosInstance";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetchCategories();
@@ -14,9 +15,10 @@ const Home = () => {
     try {
       const response = await axiosInstance.get("/categories");
       setCategories(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching categories:", error);
+    } catch (err) {
+      console.error("Error fetching categories:", err);
+      setError("Failed to load categories");
+    } finally {
       setLoading(false);
     }
   };
@@ -35,13 +37,15 @@ const Home = () => {
     return <div className="loading">Loading categories...</div>;
   }
 
+  if (error) {
+    return <div className="error">{error}</div>;
+  }
+
   return (
     <div className="home-page">
       <section className="hero-section">
         <h1>Welcome to Library Portal</h1>
-        <p>
-          Browse our extensive collection of books across various categories
-        </p>
+        <p>Browse our extensive collection of books across various categories</p>
       </section>
 
       <section className="categories-section">
