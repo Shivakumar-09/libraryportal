@@ -1,0 +1,265 @@
+/* Dashboard Styles (Student & Admin) */
+
+.student-dashboard,
+.admin-dashboard {
+    min-height: calc(100vh - var(--header-height));
+    padding-bottom: var(--spacing-xl);
+}
+
+.dashboard-header-student,
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: var(--text-secondary);
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Stats Grid */
+.student-stats-grid,
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.student-stat-card,
+.stat-card {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    border: 1px solid #f1f5f9;
+    transition: transform var(--transition-fast);
+}
+
+.student-stat-card:hover,
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: var(--border-radius-full);
+}
+
+/* Stat Card Colors */
+.stat-card:nth-child(1) .stat-icon {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Tabs */
+.dashboard-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all var(--transition-fast);
+}
+
+.tab-button:hover {
+    color: var(--primary-color);
+    background: #f8fafc;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Borrowed Books Grid */
+.borrowed-books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.borrowed-book-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.borrowed-book-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.borrow-dates {
+    margin: var(--spacing-sm) 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Utility Cards */
+.no-books-message {
+    text-align: center;
+    padding: 3rem;
+    background: #f8fafc;
+    border-radius: var(--border-radius-lg);
+    border: 2px dashed #cbd5e1;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* History Table Overlay */
+.history-table,
+.activity-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: var(--spacing-md);
+}
+
+.history-table th,
+.activity-table th {
+    background: #f1f5f9;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--text-secondary);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.history-table td,
+.activity-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.history-table tr:hover td,
+.activity-table tr:hover td {
+    background: #f8fafc;
+}
+
+/* Admin Quick Actions */
+.quick-actions h2,
+.recent-activity h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.action-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 1px solid #e2e8f0;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-sm);
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.action-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: #f0f9ff;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+}
+
+.action-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.action-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.admin-info-section {
+    background: #f8fafc;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    margin-top: var(--spacing-xl);
+    border: 1px solid #e2e8f0;
+}

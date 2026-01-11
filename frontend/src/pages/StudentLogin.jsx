@@ -41,52 +41,54 @@ const StudentLogin = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-container">
-        <div className="auth-header">
-          <h1>🎓 Student Login</h1>
-          <p>Access your library account</p>
+    <div className="auth-page-premium">
+      <div className="auth-card-glass">
+        <div className="auth-header-premium">
+          <h1>Welcome Back</h1>
+          <p>Please enter your details to sign in</p>
         </div>
 
-        {error && <div className="error-alert">{error}</div>}
+        {error && <div className="error-message-glass">⚠️ {error}</div>}
 
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group-floating">
+            <span className="input-icon">📧</span>
             <input
               type="email"
               id="email"
               name="email"
+              className="input-floating"
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="Enter your email"
+              placeholder="Email Address"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="input-group-floating">
+            <span className="input-icon">🔒</span>
             <input
               type="password"
               id="password"
               name="password"
+              className="input-floating"
               value={formData.password}
               onChange={handleChange}
               required
-              placeholder="Enter your password"
+              placeholder="Password"
             />
           </div>
 
           <button
             type="submit"
-            className="btn-large btn-primary"
+            className="btn-premium"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Logging in..." : "Sign In"}
           </button>
         </form>
 
-        <div className="auth-footer">
+        <div className="auth-footer-link">
           <p>
             Don't have an account?{" "}
             <Link to="/student/register">Register here</Link>

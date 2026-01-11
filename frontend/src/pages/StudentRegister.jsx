@@ -74,143 +74,126 @@ const StudentRegister = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-container auth-container-large">
-        <div className="auth-header">
-          <h1>📝 Student Registration</h1>
-          <p>Create your library account</p>
+    <div className="auth-page-premium">
+      <div className="auth-card-glass auth-card-glass-wide">
+        <div className="auth-header-premium">
+          <h1>📝 Join the Library</h1>
+          <p>Create your student account to start borrowing</p>
         </div>
 
-        {errors.submit && <div className="error-alert">{errors.submit}</div>}
+        {errors.submit && <div className="error-message-glass">⚠️ {errors.submit}</div>}
 
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-row">
-            <div className={`form-group ${errors.name ? "has-error" : ""}`}>
-              <label htmlFor="name">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-              />
-              {errors.name && (
-                <span className="error-message">{errors.name}</span>
-              )}
+        <form onSubmit={handleSubmit}>
+          <div className="form-grid-premium">
+            {/* Left Column */}
+            <div>
+              <div className="input-group-floating">
+                <span className="input-icon">👤</span>
+                <input
+                  type="text"
+                  name="name"
+                  className="input-floating"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name"
+                />
+                {errors.name && <small className="form-error">{errors.name}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">🆔</span>
+                <input
+                  type="text"
+                  name="studentId"
+                  className="input-floating"
+                  value={formData.studentId}
+                  onChange={handleChange}
+                  placeholder="Roll Number"
+                />
+                {errors.studentId && <small className="form-error">{errors.studentId}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">📧</span>
+                <input
+                  type="email"
+                  name="email"
+                  className="input-floating"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                />
+                {errors.email && <small className="form-error">{errors.email}</small>}
+              </div>
             </div>
 
-            <div
-              className={`form-group ${errors.studentId ? "has-error" : ""}`}
-            >
-              <label htmlFor="studentId">Roll Number *</label>
-              <input
-                type="text"
-                id="studentId"
-                name="studentId"
-                value={formData.studentId}
-                onChange={handleChange}
-                placeholder="Enter your roll number"
-              />
-              {errors.studentId && (
-                <span className="error-message">{errors.studentId}</span>
-              )}
+            {/* Right Column */}
+            <div>
+              <div className="input-group-floating">
+                <span className="input-icon">📚</span>
+                <input
+                  type="text"
+                  name="dept"
+                  className="input-floating"
+                  value={formData.dept}
+                  onChange={handleChange}
+                  placeholder="Department"
+                />
+                {errors.dept && <small className="form-error">{errors.dept}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">📱</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="input-floating"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                />
+                {errors.phone && <small className="form-error">{errors.phone}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">🔒</span>
+                <input
+                  type="password"
+                  name="password"
+                  className="input-floating"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password (min 6 chars)"
+                />
+                {errors.password && <small className="form-error">{errors.password}</small>}
+              </div>
             </div>
           </div>
 
-          <div className={`form-group ${errors.email ? "has-error" : ""}`}>
-            <label htmlFor="email">Email Address *</label>
+          <div className="input-group-floating" style={{ maxWidth: '400px', margin: '0 auto 1.5rem' }}>
+            <span className="input-icon">🔐</span>
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
+              type="password"
+              name="confirmPassword"
+              className="input-floating"
+              value={formData.confirmPassword}
               onChange={handleChange}
-              placeholder="Enter your email"
+              placeholder="Confirm Password"
             />
-            {errors.email && (
-              <span className="error-message">{errors.email}</span>
-            )}
-          </div>
-
-          <div className="form-row">
-            <div className={`form-group ${errors.password ? "has-error" : ""}`}>
-              <label htmlFor="password">Password *</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Minimum 6 characters"
-              />
-              {errors.password && (
-                <span className="error-message">{errors.password}</span>
-              )}
-            </div>
-
-            <div
-              className={`form-group ${
-                errors.confirmPassword ? "has-error" : ""
-              }`}
-            >
-              <label htmlFor="confirmPassword">Confirm Password *</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                placeholder="Re-enter password"
-              />
-              {errors.confirmPassword && (
-                <span className="error-message">{errors.confirmPassword}</span>
-              )}
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className={`form-group ${errors.dept ? "has-error" : ""}`}>
-              <label htmlFor="dept">Department *</label>
-              <input
-                type="text"
-                id="dept"
-                name="dept"
-                value={formData.dept}
-                onChange={handleChange}
-                placeholder="e.g., Computer Science"
-              />
-              {errors.dept && (
-                <span className="error-message">{errors.dept}</span>
-              )}
-            </div>
-
-            <div className={`form-group ${errors.phone ? "has-error" : ""}`}>
-              <label htmlFor="phone">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-              />
-              {errors.phone && (
-                <span className="error-message">{errors.phone}</span>
-              )}
-            </div>
+            {errors.confirmPassword && <small className="form-error">{errors.confirmPassword}</small>}
           </div>
 
           <button
             type="submit"
-            className="btn-large btn-primary"
+            className="btn-premium"
             disabled={loading}
+            style={{ maxWidth: '400px', margin: '0 auto', display: 'block' }}
           >
-            {loading ? "Creating Account..." : "Register"}
+            {loading ? "Creating Account..." : "Register Account"}
           </button>
         </form>
 
-        <div className="auth-footer">
+        <div className="auth-footer-link">
           <p>
             Already have an account? <Link to="/student/login">Login here</Link>
           </p>
