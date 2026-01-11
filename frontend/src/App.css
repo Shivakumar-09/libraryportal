@@ -40,3 +40,21 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+
+/* Footer Styling */
+.footer {
+  margin-top: auto;
+  padding: 2rem 1rem;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-content {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.footer-content p {
+  margin: 0.25rem 0;
+}
