@@ -1,0 +1,126 @@
+/* Book Details Page Styles */
+
+.book-details-page {
+    padding: var(--spacing-xl) 0;
+    display: flex;
+    justify-content: center;
+}
+
+.book-details-container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.book-details-header {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.book-details-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-badge.available {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.status-badge.unavailable {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.book-details-content {
+    padding: 2rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-row strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.detail-row span {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.detail-section {
+    margin-top: 2rem;
+}
+
+.detail-section strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.book-description-full {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--primary-color);
+}
+
+.book-actions {
+    padding: 2rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+    .book-details-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .book-actions {
+        flex-direction: column;
+    }
+
+    .book-actions button {
+        width: 100%;
+    }
+}

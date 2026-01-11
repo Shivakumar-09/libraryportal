@@ -1,98 +1,42 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-}
+/* App.css - Main Application Layout */
 
-.navbar {
+#root {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: #ff6600;
-  color: white;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.navbar a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background: #333;
-  color: white;
-}
-
-.section-list {
-  padding: 2rem;
-  text-align: center;
-}
-
-.sections {
+.app-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  flex: 1;
 }
 
-.section-card {
-  padding: 1rem;
-  background: #eee;
-  border-radius: 8px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-sm);
 }
 
-.books-grid {
-  display: flex;
-  gap: 20px;
-  padding: 2rem;
-  flex-wrap: wrap;
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.book-card {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 200px;
-  background: white;
-  text-align: center;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.book-card .borrow-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 5px;
-  background: #ff6600;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: var(--border-radius-full);
+  opacity: 0.5;
 }
 
-.student-form {
-  padding: 2rem;
-}
-
-.student-form form input {
-  display: block;
-  margin: 10px 0;
-  padding: 8px;
-  width: 250px;
-}
-
-button {
-  background: #ff6600;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.token-display {
-  padding: 1rem;
-  background: #dff0d8;
-  border: 1px solid green;
-  border-radius: 8px;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
 }

@@ -1,50 +1,65 @@
 const Borrow = require("../models/Borrow");
 const Book = require("../models/Book");
 const Student = require("../models/Student");
+const mongoose = require("mongoose");
 const crypto = require("crypto");
 
 exports.borrowBook = async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
   try {
     const { bookId } = req.params;
     const { name, studentId, dept, email, phone } = req.body;
 
-    console.log("Incoming borrow request:", {
-      bookId,
-      name,
-      studentId,
-      dept,
-      email,
-      phone,
-    });
-
-    const book = await Book.findById(bookId);
+    const book = await Book.findById(bookId).session(session);
     if (!book) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ message: "Book not found" });
     }
 
     if (book.availableCopies <= 0) {
+      await session.abortTransaction();
+      session.endSession();
       return res
         .status(400)
         .json({ message: "Book not available. Join waitlist." });
     }
 
-    let student = await Student.findOne({ studentId });
+    let student = await Student.findOne({ studentId }).session(session);
     if (!student) {
-      student = await Student.create({ name, studentId, dept, email, phone });
+      student = await Student.create([{ name, studentId, dept, email, phone }], { session });
+      student = student[0];
+    }
+
+    // Check if student already has this book active
+    const existingBorrow = await Borrow.findOne({
+      bookId,
+      studentId: student._id,
+      status: "active",
+    }).session(session);
+
+    if (existingBorrow) {
+      await session.abortTransaction();
+      session.endSession();
+      return res.status(400).json({ message: "You have already borrowed this book" });
     }
 
     const token = crypto.randomBytes(8).toString("hex").toUpperCase();
 
-    const borrow = await Borrow.create({
+    const borrow = await Borrow.create([{
       bookId,
       studentId: student._id,
       token,
-    });
+    }], { session });
 
     book.availableCopies -= 1;
-    await book.save();
+    await book.save({ session });
 
-    const populatedBorrow = await Borrow.findById(borrow._id)
+    await session.commitTransaction();
+    session.endSession();
+
+    const populatedBorrow = await Borrow.findById(borrow[0]._id)
       .populate("bookId")
       .populate("studentId");
 
@@ -53,7 +68,9 @@ exports.borrowBook = async (req, res) => {
       borrow: populatedBorrow,
     });
   } catch (error) {
-    console.error("❌ Error borrowing book:", error); // ADD THIS LINE
+    await session.abortTransaction();
+    session.endSession();
+    console.error("❌ Error borrowing book:", error);
     res.status(500).json({
       message: "Error borrowing book",
       error: error.message,
@@ -191,35 +208,51 @@ exports.getMyHistory = async (req, res) => {
   }
 };
 exports.returnBook = async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
   try {
     const { borrowId } = req.params;
 
-    const borrow = await Borrow.findById(borrowId).populate("bookId");
+    const borrow = await Borrow.findById(borrowId).session(session);
     if (!borrow) {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(404).json({ message: "Borrow record not found" });
     }
 
     if (borrow.status === "returned") {
+      await session.abortTransaction();
+      session.endSession();
       return res.status(400).json({ message: "Book already returned" });
     }
 
     borrow.status = "returned";
     borrow.actualReturnDate = new Date();
-    await borrow.save();
+    await borrow.save({ session });
 
-    // Increment availableCopies
-    const book = borrow.bookId;
-    book.availableCopies += 1;
-    await book.save();
+    // Re-fetch book to ensure we have the document and lock it
+    const book = await Book.findById(borrow.bookId).session(session);
+    if (book) {
+      book.availableCopies += 1;
+      await book.save({ session });
+    }
 
-    const returnedOnTime = borrow.actualReturnDate <= borrow.returnDate;
+    await session.commitTransaction();
+    session.endSession();
+
+    // Populate for response
+    const populatedBorrow = await Borrow.findById(borrowId).populate("bookId");
+
+    const returnedOnTime = populatedBorrow.actualReturnDate <= populatedBorrow.returnDate;
 
     res.json({
       message: "Book returned successfully",
       returnedOnTime,
-      borrow,
+      borrow: populatedBorrow,
     });
   } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
     console.error(error);
     res
       .status(500)

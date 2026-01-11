@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 import { useAuth } from "../context/AuthContext";
 
@@ -45,50 +45,56 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="admin-login-page">
-      <div className="login-container">
-        <div className="login-header">
-          <h1>🔐 Admin Login</h1>
-          <p>Access the administrative dashboard</p>
+    <div className="auth-page-premium">
+      <div className="auth-card-glass">
+        <div className="auth-header-premium">
+          <h1>🔐 Admin Portal</h1>
+          <p>Secure access for library administrators</p>
         </div>
 
-        {error && <div className="error-alert">{error}</div>}
+        {error && <div className="error-message-glass">⚠️ {error}</div>}
 
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group-floating">
+            <span className="input-icon">👤</span>
             <input
               type="text"
               id="username"
               name="username"
+              className="input-floating"
               value={formData.username}
               onChange={handleChange}
               required
-              placeholder="Enter admin username"
+              placeholder="Username"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="input-group-floating">
+            <span className="input-icon">🔑</span>
             <input
               type="password"
               id="password"
               name="password"
+              className="input-floating"
               value={formData.password}
               onChange={handleChange}
               required
-              placeholder="Enter admin password"
+              placeholder="Password"
             />
           </div>
 
           <button
             type="submit"
-            className="btn-large btn-primary"
+            className="btn-premium"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Authenticating..." : "Access Dashboard"}
           </button>
         </form>
+
+        <div className="auth-footer-link">
+          <Link to="/">← Back to Library Home</Link>
+        </div>
       </div>
     </div>
   );
