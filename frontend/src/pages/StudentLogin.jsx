@@ -41,20 +41,6 @@ const StudentLogin = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="auth-page">
-      <div className="auth-container">
-        <div className="auth-header">
-          <h1>🎓 Student Login</h1>
-          <p>Access your library account</p>
-        </div>
-
-        {error && <div className="error-alert">{error}</div>}
-
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-=======
     <div className="auth-page-premium">
       <div className="auth-card-glass">
         <div className="auth-header-premium">
@@ -67,22 +53,10 @@ const StudentLogin = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-group-floating">
             <span className="input-icon">📧</span>
->>>>>>> friend/main
             <input
               type="email"
               id="email"
               name="email"
-<<<<<<< HEAD
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="Enter your email"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-=======
               className="input-floating"
               value={formData.email}
               onChange={handleChange}
@@ -93,38 +67,20 @@ const StudentLogin = () => {
 
           <div className="input-group-floating">
             <span className="input-icon">🔒</span>
->>>>>>> friend/main
             <input
               type="password"
               id="password"
               name="password"
-<<<<<<< HEAD
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="Enter your password"
-=======
               className="input-floating"
               value={formData.password}
               onChange={handleChange}
               required
               placeholder="Password"
->>>>>>> friend/main
             />
           </div>
 
           <button
             type="submit"
-<<<<<<< HEAD
-            className="btn-large btn-primary"
-            disabled={loading}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-
-        <div className="auth-footer">
-=======
             className="btn-premium"
             disabled={loading}
           >
@@ -133,7 +89,6 @@ const StudentLogin = () => {
         </form>
 
         <div className="auth-footer-link">
->>>>>>> friend/main
           <p>
             Don't have an account?{" "}
             <Link to="/student/register">Register here</Link>
