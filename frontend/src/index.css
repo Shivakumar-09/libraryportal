@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -7,12 +8,33 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+=======
+/* Find and import a nice font like Poppins or Inter */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+@import './styles/variables.css';
+@import './styles/utilities.css';
+@import './styles/buttons.css';
+@import './styles/forms.css';
+@import './styles/cards.css';
+@import './styles/tables.css';
+@import './styles/badges.css';
+/* @import './styles/layout.css'; Removed global layout import to avoid conflicts with App.css for now, will re-add if needed */
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+>>>>>>> friend/main
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 a {
   font-weight: 500;
   color: #646cff;
@@ -66,3 +88,54 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+=======
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+* {
+  box-sizing: border-box;
+}
+>>>>>>> friend/main

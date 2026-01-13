@@ -92,10 +92,17 @@ const AdminDashboard = () => {
             <h3>
               {stats.totalBorrowed > 0
                 ? Math.round(
+<<<<<<< HEAD
                     (stats.totalReturned /
                       (stats.totalBorrowed + stats.totalReturned)) *
                       100
                   )
+=======
+                  (stats.totalReturned /
+                    (stats.totalBorrowed + stats.totalReturned)) *
+                  100
+                )
+>>>>>>> friend/main
                 : 0}
               %
             </h3>
@@ -136,7 +143,11 @@ const AdminDashboard = () => {
       {stats.recentBorrows && stats.recentBorrows.length > 0 && (
         <div className="recent-activity">
           <h2>📅 Recent Borrowings</h2>
+<<<<<<< HEAD
           <table className="activity-table">
+=======
+          <table className="history-table">
+>>>>>>> friend/main
             <thead>
               <tr>
                 <th>Token</th>

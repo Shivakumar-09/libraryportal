@@ -41,6 +41,7 @@ const StudentLogin = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-header">
@@ -53,10 +54,25 @@ const StudentLogin = () => {
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
+=======
+    <div className="auth-page-premium">
+      <div className="auth-card-glass">
+        <div className="auth-header-premium">
+          <h1>Welcome Back</h1>
+          <p>Please enter your details to sign in</p>
+        </div>
+
+        {error && <div className="error-message-glass">⚠️ {error}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="input-group-floating">
+            <span className="input-icon">📧</span>
+>>>>>>> friend/main
             <input
               type="email"
               id="email"
               name="email"
+<<<<<<< HEAD
               value={formData.email}
               onChange={handleChange}
               required
@@ -66,19 +82,40 @@ const StudentLogin = () => {
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
+=======
+              className="input-floating"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="Email Address"
+            />
+          </div>
+
+          <div className="input-group-floating">
+            <span className="input-icon">🔒</span>
+>>>>>>> friend/main
             <input
               type="password"
               id="password"
               name="password"
+<<<<<<< HEAD
               value={formData.password}
               onChange={handleChange}
               required
               placeholder="Enter your password"
+=======
+              className="input-floating"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              placeholder="Password"
+>>>>>>> friend/main
             />
           </div>
 
           <button
             type="submit"
+<<<<<<< HEAD
             className="btn-large btn-primary"
             disabled={loading}
           >
@@ -87,6 +124,16 @@ const StudentLogin = () => {
         </form>
 
         <div className="auth-footer">
+=======
+            className="btn-premium"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Sign In"}
+          </button>
+        </form>
+
+        <div className="auth-footer-link">
+>>>>>>> friend/main
           <p>
             Don't have an account?{" "}
             <Link to="/student/register">Register here</Link>

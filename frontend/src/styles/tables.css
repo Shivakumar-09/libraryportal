@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .table-container-enhanced,
 .admin-table-container,
 .borrowed-table-container {
@@ -208,3 +209,46 @@
   font-size: 0.875rem;
   font-style: italic;
 }
+=======
+/* Table Styles */
+
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  background: white;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.table th {
+  background: #f8fafc;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: #f8fafc;
+}
+>>>>>>> friend/main

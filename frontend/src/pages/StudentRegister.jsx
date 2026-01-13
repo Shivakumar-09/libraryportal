@@ -74,6 +74,7 @@ const StudentRegister = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="auth-page">
       <div className="auth-container auth-container-large">
         <div className="auth-header">
@@ -199,10 +200,120 @@ const StudentRegister = () => {
                 <span className="error-message">{errors.phone}</span>
               )}
             </div>
+=======
+    <div className="auth-page-premium">
+      <div className="auth-card-glass auth-card-glass-wide">
+        <div className="auth-header-premium">
+          <h1>📝 Join the Library</h1>
+          <p>Create your student account to start borrowing</p>
+        </div>
+
+        {errors.submit && <div className="error-message-glass">⚠️ {errors.submit}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-grid-premium">
+            {/* Left Column */}
+            <div>
+              <div className="input-group-floating">
+                <span className="input-icon">👤</span>
+                <input
+                  type="text"
+                  name="name"
+                  className="input-floating"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name"
+                />
+                {errors.name && <small className="form-error">{errors.name}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">🆔</span>
+                <input
+                  type="text"
+                  name="studentId"
+                  className="input-floating"
+                  value={formData.studentId}
+                  onChange={handleChange}
+                  placeholder="Roll Number"
+                />
+                {errors.studentId && <small className="form-error">{errors.studentId}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">📧</span>
+                <input
+                  type="email"
+                  name="email"
+                  className="input-floating"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                />
+                {errors.email && <small className="form-error">{errors.email}</small>}
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div>
+              <div className="input-group-floating">
+                <span className="input-icon">📚</span>
+                <input
+                  type="text"
+                  name="dept"
+                  className="input-floating"
+                  value={formData.dept}
+                  onChange={handleChange}
+                  placeholder="Department"
+                />
+                {errors.dept && <small className="form-error">{errors.dept}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">📱</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="input-floating"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                />
+                {errors.phone && <small className="form-error">{errors.phone}</small>}
+              </div>
+
+              <div className="input-group-floating">
+                <span className="input-icon">🔒</span>
+                <input
+                  type="password"
+                  name="password"
+                  className="input-floating"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password (min 6 chars)"
+                />
+                {errors.password && <small className="form-error">{errors.password}</small>}
+              </div>
+            </div>
+          </div>
+
+          <div className="input-group-floating" style={{ maxWidth: '400px', margin: '0 auto 1.5rem' }}>
+            <span className="input-icon">🔐</span>
+            <input
+              type="password"
+              name="confirmPassword"
+              className="input-floating"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+            />
+            {errors.confirmPassword && <small className="form-error">{errors.confirmPassword}</small>}
+>>>>>>> friend/main
           </div>
 
           <button
             type="submit"
+<<<<<<< HEAD
             className="btn-large btn-primary"
             disabled={loading}
           >
@@ -211,6 +322,17 @@ const StudentRegister = () => {
         </form>
 
         <div className="auth-footer">
+=======
+            className="btn-premium"
+            disabled={loading}
+            style={{ maxWidth: '400px', margin: '0 auto', display: 'block' }}
+          >
+            {loading ? "Creating Account..." : "Register Account"}
+          </button>
+        </form>
+
+        <div className="auth-footer-link">
+>>>>>>> friend/main
           <p>
             Already have an account? <Link to="/student/login">Login here</Link>
           </p>

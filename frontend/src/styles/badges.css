@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================
    badges.css — Category, Copies, Status, Waitlist
    ========================================= */
@@ -353,3 +354,43 @@
     gap: 10px;
   }
 }
+=======
+/* Badge Styles */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.badge-warning {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.badge-error {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-info {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.badge-neutral {
+  background: #f1f5f9;
+  color: #475569;
+}
+>>>>>>> friend/main
