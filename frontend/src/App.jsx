@@ -15,14 +15,6 @@ import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
 import AddBookForm from "./admin/AddBookForm";
 import BookListAdmin from "./admin/BookListAdmin";
-<<<<<<< HEAD
-// ✅ Global Theme Imports
-import "./styles/buttons.css";
-import "./styles/forms.css";
-import "./styles/animations.css";
-import "./styles/badges.css";
-import "./styles/cards.css";
-=======
 import "./App.css"; // Main App Layout
 // ✅ Global Theme Imports
 import "./styles/buttons.css";
@@ -36,7 +28,6 @@ import "./styles/book-details.css";
 import "./styles/dashboard.css";
 import "./styles/home.css";
 import "./styles/navbar.css";
->>>>>>> friend/main
 import "./styles/layout.css";
 import "./styles/tables.css";
 import "./styles/utilities.css";
